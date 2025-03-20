@@ -1,4 +1,7 @@
- //lets see how we use react to do the same thing.
+import React from "react";
+import ReactDOM from "react-dom/client";
+
+//lets see how we use react to do the same thing.
 //this createElement takes 3 arguments.
 //1. type of element
 //2. 2nd argument is the place where we use to give attributes to the tags.
