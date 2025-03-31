@@ -1,42 +1,56 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-//lets see how we use react to do the same thing.
-//this createElement takes 3 arguments.
-//1. type of element
-//2. 2nd argument is the place where we use to give attributes to the tags.
-// suppose if we want to give it a id , we will write here {id: 'main-heading'}
-//3. third argument will take whatever we have to put inside h1 tag.
+//Just like DOM element in Javascript
+// We have react element in React
+
+const heading = React.createElement("h1",{id:"heading"},"Namaste React 🚀");
+// Now its an object not html element
+console.log("heading", heading)
+
+//This is how we can create h1 element using JSX
+const jsxHeading = <h1 id="heading"> Namaste react using JSX 🚀</h1>
+console.log("jsx heading",jsxHeading)
+
+//when we render this element to the DOM it becomes the html.
+const root = ReactDOM.createRoot(document.getElementById("root"));
+// whatever will happen inside this root will be rendered to the DOM
+
+//React functional component
+//Its a normal javascript function which returns some JSX element
+// const HeadingComponent = () => (
+//     <div id="container">
+//          <h1 className="heading">Namaste React Functional Component</h1>
+//     </div>
+// )
 
 
-const heading = React.createElement('h1', {id:'heading',xyz:"abc"}, 'Namaste React');
-console.log(heading,typeof(heading)); // its an object.
-// this heading is a react element basically a javascript object not an html tag.
-const root = ReactDOM.createRoot(document.getElementById('root'));
-//react need to have a root where it can do all the DOM manipulation
-//now we can render heading inside this root
-root.render(heading);
-//this will render the heading inside the root element by converting heading object to html tag and render inside the root.
+const TitleComponent = () =>(
+    <h1 className="head">
+        Namaste React using JSX
+    </h1>
+);
+
+const number = 100000;
 
 
-//Now suppose we want to have something like this.
-{/* <div id="parent">
-    <div id="child">
-        <h1></h1>
+//suppose if we want to render this title component , inside our Heading Component.
+//this is also called as Component Composition.
+const HeadingComponent = () => (
+    <div id="container">
+        {jsxHeading}
+         <h1 className="heading">Namaste React Functional Component</h1>
     </div>
-</div> */}
+)
 
-// How we can create this type of structure in react
 
-//how to create nested elements 
+// root.render(jsxHeading);
+//it will replace whatever is present inside the root.
 
-//so first lets create parent
-// const parent = React.createElement(
-//     'div',
-//     { id: 'parent' },
-//     React.createElement('div', { id: 'child' },
-//         React.createElement('h1', {}, 'I am h1 tag')
-//     )
-// );
+// if we want to render our functional component , how we can render it.
+root.render(<HeadingComponent/>)
 
-// root.render(parent);
+
+
+
+
