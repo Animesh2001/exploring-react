@@ -58,3 +58,10 @@
 .res-logo{
     width: 100%;
 }
+
+
+/* Filter button styling */
+.filter-btn {
+    margin: 10px; 
+    cursor: pointer;
+}
